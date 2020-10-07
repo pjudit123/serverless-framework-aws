@@ -65,10 +65,15 @@ Initial Setup
 
 Deploy to AWS Lambda
   - ``` serverless deploy --stage dev``` will create a lambda function
+  
   ![alt text](https://github.com/pjudit123/serverless-framework-aws/blob/master/ouput_images/lambda_api.PNG)
+  
   - Checked the permissions on IAM role that invokes lambda function and added policies necessary to access EC2 services.
-  ![alt text](https://github.com/pjudit123/serverless-framework-aws/blob/master/ouput_images/iam_role.PNG)
+  
+  ![alt text](https://github.com/pjudit123/serverless-framework-aws/blob/master/ouput_images/iam-role.PNG)
+  
   - Using api will get a response as 
+  
   ![alt text](https://github.com/pjudit123/serverless-framework-aws/blob/master/ouput_images/api_response.PNG)
   
     
