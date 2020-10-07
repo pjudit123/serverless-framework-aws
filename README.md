@@ -39,7 +39,7 @@ Initial Setup
      ```
   - Created an api handler to list security group details
     ```
-    import * as AWS from 'aws-sdk';
+    const AWS = require('aws-sdk');
 
     async function details() {
       try {
