@@ -87,19 +87,17 @@ Other AWS Setup:
 Unit Test Setup
   - Used Jest for unit testing
   - ```npm install --save-dev jest```
+  - Create test folder __test__ and tests to it.
+  - Create mock function folder __mock__ and add mocks if any.
+  - add scripts to run test 
+    ```
+    "scripts": {
+      "test": "jest",
+    },
+    ```
+  - To run tests ```npm run test```  
   - Used aws-sdk-mock for the mocking the aws resource
-  ```import 'babel-polyfill';
-    import * as AWSMock from 'aws-sdk-mock';
-    import * as AWS from 'aws-sdk';
-
-    const handler = require('../ec2Service/ec2Handler');
-
-    beforeAll(async (done) => {
-      // if any env vars
-      AWS.config.update({ region: 'ap-southeast-2' });
-      done();
-    });
-
+  ```
     describe('Unit tests', () => {
       it('using AWS SDK mock should get security group details', async () => {
         const mockResult = { groupID: 'sg-122424', groupName: 'sg-default-1' };
@@ -114,12 +112,45 @@ Unit Test Setup
         AWSMock.restore('EC2');
         await handler.details();
       });
-    });```
-    
+    });
+  ```
+  - Other way to unit test without aws-sdk-mock. 
+  I have used jest.fn().mockImplementation to mock the AWS.EC2() which is ```__test__/ec2ServiceJestMock.test.js```
+
+Code Coverage Report
+
+  - add scripts to run test coverage report
+    ```
+    "scripts": {
+      "test:coverage": "jest --coverage",
+    },
+    ```
+  - To run tests ```npm run test:coverage``` 
+  ![](https://github.com/pjudit123/serverless-framework-aws/blob/master/ouput_images/code_coverage_report.PNG)
 
 Other Dependencies
+  - Used babel config for general presets
+  - Eslint was installed 
+    - ```npm install eslint@5```
+    - ```npx eslint init```
+    Follow the instruction to setup preset config for eslint, once done .eslintrc.js will be created
+    - Alter rules as necessary, I have added the below ones as basic
+    ```
+    rules: {
+        'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+        'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+        'max-len': ['error', { code: 120 }],
+        'linebreak-style': 0,
+        'no-unused-vars': ['error', { 'args': 'after-used' }],
+        'object-curly-newline': ['error', {
+          'consistent': true,
+        }],
+        'import/extensions': ['error', 'ignorePackages', { 'js':  'never' }],
+    }
+    ```
 
-Project Setup
+Project Clone and Run
   - Git clone the project repo
   - run ``` npm ci```
   - run ``` npm install ```
+  - run ```server deploy --stage dev```
