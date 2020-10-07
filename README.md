@@ -60,8 +60,13 @@ Initial Setup
     ```
   - Now let invoke function in location using the command
     ```serverless invoke --function=ec2Service --log```
-    will give you an output
+    will give you an output in a JSON format
     ![alt text](https://github.com/pjudit123/serverless-framework-aws/blob/master/ouput_images/local_output.PNG)
+
+Deploy to AWS Lambda
+  - ``` serverless deploy --stage dev``` will create a lambda function
+  ![alt text](https://github.com/pjudit123/serverless-framework-aws/blob/master/ouput_images/lambda_output.PNG)
+  
     
 Project Setup
   - Git clone the project repo
