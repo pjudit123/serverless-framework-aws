@@ -76,7 +76,19 @@ Deploy to AWS Lambda
   
   ![alt text](https://github.com/pjudit123/serverless-framework-aws/blob/master/ouput_images/api_response.PNG)
   
-    
+Other AWS Setup:
+  - Cloud watch log groups was created for API access log and lamba function
+  - API logs/trace
+    - Created IAM role for the specific log group and added API gateway policies required to integrate logs
+    - In AWS console, navigate to Services -> API -> Settings -> fillin <CloudWatch log role ARN*> that was created in the initial step
+    - Enable logs for the deployed API stage
+    ![](https://github.com/pjudit123/serverless-framework-aws/blob/master/ouput_images/cloud_watch.PNG)
+
+Unit Test Setup
+
+Other Dependencies
+
 Project Setup
   - Git clone the project repo
-  - run ``` npm 
+  - run ``` npm ci```
+  - run ``` npm install ```
