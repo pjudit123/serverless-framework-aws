@@ -133,7 +133,8 @@
     "url": "git+https://github.com/request/request.git"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "version": "2.88.2"
 }
