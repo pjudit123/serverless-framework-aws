@@ -1,0 +1,19 @@
+# package directories
+node_modules
+jspm_packages
+
+# Serverless directories
+.serverless
+
+# other
+.env
+
+# Editor directories and files
+*.idea
+*.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.xml
