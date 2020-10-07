@@ -37,7 +37,32 @@ Initial Setup
               path: ec2-details
               method: get
      ```
-     
+  - Created an api handler to list security group details
+    ```
+    import * as AWS from 'aws-sdk';
+
+    async function details() {
+      try {
+        const groupDetails = await new AWS.EC2({ apiVersion: '2016-11-15' }).describeSecurityGroups().promise();
+        return {
+          statusCode: 200,
+          body: JSON.stringify({ result: groupDetails }),
+        };
+      } catch (error) {
+        return {
+          statusCode: 500,
+          body: JSON.stringify({ result: 'Error! Retrieving security group details failed.' }),
+        };
+      }
+    }
+
+    module.exports = { details };
+    ```
+  - Now let invoke function in location using the command
+    ```serverless invoke --function=ec2Service --log```
+    will give you an output
+    ![alt text](https://github.com/pjudit123/serverless-framework-aws/blob/master/ouput_images/local_output.PNG)
+    
 Project Setup
   - Git clone the project repo
   - run ``` npm 
