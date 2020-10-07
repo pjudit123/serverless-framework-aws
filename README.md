@@ -61,7 +61,7 @@ Initial Setup
   - Now let invoke function in location using the command
     ```serverless invoke --function=ec2Service --log```
     will give you an output
-    ![alt text](https://github.com/pjudit123/serverless-framework-aws/blob/master/output_images/local_output.PNG?raw=true)
+    ![alt text](https://github.com/pjudit123/serverless-framework-aws/blob/master/ouput_images/local_output.PNG)
     
 Project Setup
   - Git clone the project repo
