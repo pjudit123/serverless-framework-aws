@@ -83,6 +83,10 @@ Other AWS Setup:
     - In AWS console, navigate to Services -> API -> Settings -> fillin <CloudWatch log role ARN*> that was created in the initial step
     - Enable logs for the deployed API stage
     ![](https://github.com/pjudit123/serverless-framework-aws/blob/master/ouput_images/cloud_watch.PNG)
+  - API Gateway using authorizer
+    - I have used token based authorizer
+    - Navigate to AWS console -> API gateway -> Authorizer -> Create new authorizer. 
+    Choose name and the lambda function to add auth and header field to pass a bearer token. 
 
 Unit Test Setup
   - Used Jest for unit testing
